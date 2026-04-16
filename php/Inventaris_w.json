@@ -1,0 +1,32 @@
+[
+    {
+        "Naam": "Jan",
+        "Leeftijd": 30,
+        "Stad": "Amsterdam"
+    },
+    {
+        "Naam": "Eva",
+        "Leeftijd": [
+            25,
+            36
+        ],
+        "Stad": "Rotterdam"
+    },
+    {
+        "Naam": [
+            "Pieter",
+            "Piet"
+        ],
+        "Leeftijd": 35,
+        "Stad": "Utrecht"
+    },
+    {
+        "Naam": "Piert",
+        "Leeftijd": 46,
+        "Stad": [
+            "Amsterdam",
+            "Rotterdam",
+            "Utrecht"
+        ]
+    }
+]
