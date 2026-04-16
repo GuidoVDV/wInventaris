@@ -127,31 +127,29 @@ $bronData = [
     [['Pieter','Piet'], 35, 'Utrecht'],
     ['Piert', 46, ['Amsterdam', 'Rotterdam', 'Utrecht']]
 ];
-/*
-schrijfCSV($bronData,"Inventaris.csv");
-schrijfJSON($bronData,"Inventaris.json");
-schrijfXLSX($bronData,"Inventaris.xlsx","Namen");
-//copyXLSX2($bronData,"Inventaris_d.xlsx","Namen");
-*/
-switch($_POST['keuze'])
+
+if (isset($_POST['bewaarkeuze']))
+{
+switch($_POST['bewaarkeuze'])
 {
   case 'xlsx': //bewaar xlsx serverside
-    schrijfXLSX($bronData,"TestSwitch.xlsx","kieken");
-    exit;
+    schrijfXLSX($bronData,"Inventaris.xlsx","kieken");
+    break;
+  case 'csv': //bewaar csv serverside
+    schrijfCSV($bronData,"Inventaris.csv");
+    break;
+  case 'json': //bewaar json serverside
+    schrijfJSON($bronData,"Inventaris.json");
+    break;
+  case 'alles': //bewaar alle formaten serversie
+    schrijfCSV($bronData,"Inventaris.csv");
+    schrijfJSON($bronData,"Inventaris.json");
+    schrijfXLSX($bronData,"Inventaris.xlsx","kieken");
+    break;
+  case 'lokaal': //bewaar lokale copy
+    copyXLSX($bronData,"Inventaris_d.xlsx","Namen");
     break;
 }
-
-if (isset($_POST['download_excel']))
-{
-  $file="Inventaris_d.xlsx";
-  copyXLSX($bronData,"Inventaris_d.xlsx","Namen");
-  exit;
-}
-else
-{
-  schrijfCSV($bronData,"Inventaris.csv");
-  schrijfJSON($bronData,"Inventaris.json");
-  schrijfXLSX($bronData,"Inventaris.xlsx","Namen");
 }
 //echo "✓ Bestanden zijn aangemaakt\n";
 ?>
